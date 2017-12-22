@@ -2,6 +2,15 @@
 Fynance-Ethereum is a set of contracts that enables holders of the Fynance token (FYG) to receive dividends, depending on how many tokens they hold, when the owners deposit Ether to disburse.
 </br>
 </br>
+Token Contract: 0x359226825f5b8fc6d2b173e4079469ca2f9dead8
+</br>
+Individual Crowdsale: 0x96dcac68faf57d4c0e825afe8f28f1e65495bfc8
+</br>
+Institutional Crowdsale: 0xbb4410d830a26238c465185702ffe321115261eb
+</br>
+PoS Contract: 0x641cf73f9da3dc81bc815ce2e9b8dbc6f3d7612a
+</br>
+</br>
 <h2>Token</h2>
 The token contract is a fairly normal ERC20 contract except that every time a user's balance changes, the proof-of-stake contract is notified and the user's owed balance from the proof-of-stake contract is updated.
 </br>
