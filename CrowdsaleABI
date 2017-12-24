@@ -6,11 +6,11 @@ Institutional Crowdsale: 0xbb4410d830a26238c465185702ffe321115261eb
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "name",
+		"name": "DISCOUNT_TIER_THREE",
 		"outputs": [
 			{
 				"name": "",
-				"type": "string"
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -21,15 +21,11 @@ Institutional Crowdsale: 0xbb4410d830a26238c465185702ffe321115261eb
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_spender",
+				"name": "_token",
 				"type": "address"
-			},
-			{
-				"name": "_amount",
-				"type": "uint256"
 			}
 		],
-		"name": "approve",
+		"name": "setToken",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -38,7 +34,7 @@ Institutional Crowdsale: 0xbb4410d830a26238c465185702ffe321115261eb
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "totalSupply",
+		"name": "presaleEndTime",
 		"outputs": [
 			{
 				"name": "",
@@ -47,33 +43,6 @@ Institutional Crowdsale: 0xbb4410d830a26238c465185702ffe321115261eb
 		],
 		"payable": false,
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_from",
-				"type": "address"
-			},
-			{
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "transferFrom",
-		"outputs": [
-			{
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -83,7 +52,49 @@ Institutional Crowdsale: 0xbb4410d830a26238c465185702ffe321115261eb
 		"outputs": [
 			{
 				"name": "",
-				"type": "uint8"
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "endTime",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "cap",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "weiRaised",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -92,50 +103,129 @@ Institutional Crowdsale: 0xbb4410d830a26238c465185702ffe321115261eb
 	},
 	{
 		"constant": false,
-		"inputs": [
-			{
-				"name": "_newPos",
-				"type": "address"
-			}
-		],
-		"name": "changePos",
+		"inputs": [],
+		"name": "ownerWithdraw",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
+		"constant": true,
+		"inputs": [],
+		"name": "tokensWithdrawn",
+		"outputs": [
 			{
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"name": "_amount",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "mint",
-		"outputs": [
-			{
-				"name": "success",
-				"type": "bool"
-			}
-		],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"constant": true,
-		"inputs": [
+		"inputs": [],
+		"name": "currentDiscount",
+		"outputs": [
 			{
-				"name": "_owner",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "wallet",
+		"outputs": [
+			{
+				"name": "",
 				"type": "address"
 			}
 		],
-		"name": "balanceOf",
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "presaleCap",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "tokensRaised",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "startTime",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "maximumValue",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "DISCOUNT_TIER_TWO",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "minimumValue",
 		"outputs": [
 			{
 				"name": "",
@@ -163,48 +253,25 @@ Institutional Crowdsale: 0xbb4410d830a26238c465185702ffe321115261eb
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "symbol",
+		"name": "withinPresale",
 		"outputs": [
 			{
 				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [
-			{
-				"name": "success",
 				"type": "bool"
 			}
 		],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "pos",
+		"name": "DISCOUNT_TIER_ONE",
 		"outputs": [
 			{
 				"name": "",
-				"type": "address"
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -213,17 +280,8 @@ Institutional Crowdsale: 0xbb4410d830a26238c465185702ffe321115261eb
 	},
 	{
 		"constant": true,
-		"inputs": [
-			{
-				"name": "_owner",
-				"type": "address"
-			},
-			{
-				"name": "_spender",
-				"type": "address"
-			}
-		],
-		"name": "allowance",
+		"inputs": [],
+		"name": "presaleStartTime",
 		"outputs": [
 			{
 				"name": "",
@@ -236,11 +294,30 @@ Institutional Crowdsale: 0xbb4410d830a26238c465185702ffe321115261eb
 	},
 	{
 		"constant": false,
-		"inputs": [],
-		"name": "claimDividend",
+		"inputs": [
+			{
+				"name": "beneficiary",
+				"type": "address"
+			}
+		],
+		"name": "buyTokens",
 		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "hasEnded",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -258,14 +335,56 @@ Institutional Crowdsale: 0xbb4410d830a26238c465185702ffe321115261eb
 		"type": "function"
 	},
 	{
+		"constant": true,
+		"inputs": [],
+		"name": "token",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
-				"name": "_crowdsale",
+				"name": "_startTime",
+				"type": "uint256"
+			},
+			{
+				"name": "_endTime",
+				"type": "uint256"
+			},
+			{
+				"name": "_presaleStartTime",
+				"type": "uint256"
+			},
+			{
+				"name": "_presaleEndTime",
+				"type": "uint256"
+			},
+			{
+				"name": "_wallet",
 				"type": "address"
 			},
 			{
-				"name": "_crowdsaleTwo",
-				"type": "address"
+				"name": "_cap",
+				"type": "uint256"
+			},
+			{
+				"name": "_presaleCap",
+				"type": "uint256"
+			},
+			{
+				"name": "_minimumValue",
+				"type": "uint256"
+			},
+			{
+				"name": "_maximumValue",
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -273,64 +392,45 @@ Institutional Crowdsale: 0xbb4410d830a26238c465185702ffe321115261eb
 		"type": "constructor"
 	},
 	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"name": "_from",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "Transfer",
-		"type": "event"
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "fallback"
 	},
 	{
 		"anonymous": false,
 		"inputs": [
 			{
 				"indexed": true,
-				"name": "_from",
+				"name": "purchaser",
 				"type": "address"
 			},
 			{
 				"indexed": true,
-				"name": "_spender",
+				"name": "beneficiary",
 				"type": "address"
 			},
 			{
-				"indexed": true,
-				"name": "_amount",
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "totalWeiRaised",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "totalTokensRaised",
 				"type": "uint256"
 			}
 		],
-		"name": "Approval",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "Mint",
+		"name": "TokenPurchase",
 		"type": "event"
 	},
 	{
